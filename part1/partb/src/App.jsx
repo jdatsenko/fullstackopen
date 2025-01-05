@@ -23,7 +23,7 @@ const App = () => {
     <>
       <Header course={course} />
       <Content parts={parts} />
-      <Total count={parts[0].exercises + parts[1].exercises + parts[2].exercises} />
+      <Total parts={parts} />
     </>
   )
 };
