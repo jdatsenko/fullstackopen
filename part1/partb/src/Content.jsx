@@ -1,13 +1,13 @@
-import Part from "./Part"
+  import Part from "./Part"
 
-const Content = (props) => {
-    return (
-      <>
-        <Part name={props.part1.name} count={props.part1.exercises} />
-        <Part name={props.part2.name} count={props.part2.exercises} />
-        <Part name={props.part3.name} count={props.part3.exercises} />
-      </>
-    );
-}
+  const Content = (props) => {
+      return (
+        <>
+        {props.parts.map((part, index) => (
+          <Part key={index} name={part.name} count={part.exercises} />
+        ))}
+        </>
+      );
+  }
 
 export default Content
