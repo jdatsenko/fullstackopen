@@ -1,15 +1,19 @@
-import Hello from './Hello'
+import { useState } from 'react'
+import Button from './Button'
 
 const App = () => {
-  const name = 'Peter'
-  const age = 10
+  const [counter, setCounter] = useState(0)
+  const increaseByOne = () => setCounter(counter + 1)
+  const decreaseByOne = () => setCounter(counter - 1)
+  const setToZero = () => setCounter(0)
 
   return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={name} age={age} />
-    </div>
+    <>
+      <div>{counter}</div>
+      <Button onClick = {increaseByOne} text="plus" />
+      <Button onClick = {decreaseByOne} text="minus" />
+      <Button onClick = {setToZero} text="to zero" />
+    </>
   )
 }
 
