@@ -1,26 +1,28 @@
 import React, { useState } from 'react'
-import History from './History'
+import Statistics from './Statistics'
 
 const App = () => {
-  const [clicks, setClicks] = useState({left: 0, right: 0})
-  const [allClicks, setAll] = useState([])
+  const [clicks, setClicks] = useState({good: 0, neutral: 0, bad: 0})
 
-  const handleLeftClick = () => {
-    setClicks({...clicks, left: clicks.left + 1})
-    setAll(allClicks.concat('L'))
+  const handleGoodClick = () => {
+    setClicks({...clicks, good: clicks.good + 1})
   }
-  const handleRightClick = () => {
-    setClicks({...clicks, right: clicks.right + 1})
-    setAll(allClicks.concat('R'))
+
+  const handleNeutralClick = () => {
+    setClicks({...clicks, neutral: clicks.neutral + 1})
+  }
+
+  const handleBadClick = () => {
+    setClicks({...clicks, bad: clicks.bad + 1})
   }
 
   return (
     <>
-      {clicks.left}
-      <button onClick={handleLeftClick}>left</button>
-      <button onClick={handleRightClick}>right</button>
-      {clicks.right}
-      <History allClicks={allClicks} />
+      <h1>give feedback</h1>
+      <button onClick={handleGoodClick}>good</button>
+      <button onClick={handleNeutralClick}>neurtal</button>
+      <button onClick={handleBadClick}>bad</button>
+      <Statistics good={clicks.good} neutral={clicks.neutral} bad={clicks.bad} />
     </>
   )
 }
